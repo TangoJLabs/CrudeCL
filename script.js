@@ -24,7 +24,7 @@ $(document).ready(function() {
     for (dateIndex in labelArray) {
       for (dataIndex in parsedData) {
         if (parsedData[dataIndex][0] == labelArray[dateIndex]) {
-          if (series == 'CL') {
+          if (series == 'CL' || series == 'TWDI' || series == 'M1') {
             dataArray.push(Math.round(parsedData[dataIndex][1] * 100) / 100)
           } else {
             dataArray.push(parsedData[dataIndex][1])
@@ -96,6 +96,11 @@ $(document).ready(function() {
           var refProdLabel = response['PET.MTTRX_NUS_1.M']['dataSeriesDescription']
           var refProdData = createDataArray(JSON.parse(response['PET.MTTRX_NUS_1.M']['data']), labelArray, 'USRefProd');
 
+          var twdiLabel = response['TWEXB']['dataSeriesDescription']
+          var twdiData = createDataArray(JSON.parse(response['TWEXB']['data']), labelArray, 'TWDI');
+          var m1Label = response['M1']['dataSeriesDescription']
+          var m1Data = createDataArray(JSON.parse(response['M1']['data']), labelArray, 'M1');
+
 
 
           var myChart = new Chart(chartCrude, {
@@ -112,6 +117,16 @@ $(document).ready(function() {
                       borderWidth: 1,
                       pointBorderColor: 'rgba(51, 153, 102, 1)',
                       pointBorderWidth: 1
+                  },{
+                      label: twdiLabel,
+                      yAxisID: 'y-axis-right',
+                      fill: false,
+                      data: twdiData,
+                      backgroundColor: 'rgba(153, 204, 0, 0.2)',
+                      borderColor: 'rgba(153, 204, 0, 1)',
+                      borderWidth: 1,
+                      pointBorderColor: 'rgba(153, 204, 0, 0)',
+                      pointBorderWidth: 0
                   },{
                       label: stockLabel,
                       yAxisID: 'y-axis-left',
@@ -195,5 +210,16 @@ $(document).ready(function() {
           });
       }
   }
+
+  if ($('body').width() < 600) {
+
+  }
+
+  $('#info_screen').css('display', 'block');
+  $('#info_box').css('display', 'block');
+  $('#info_screen').click(function() {
+    $('#info_screen').css('display', 'none');
+    $('#info_box').css('display', 'none');
+  });
 
 });
