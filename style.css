@@ -1,0 +1,68 @@
+html, body {
+	height: 100%;
+	width: 100% !important;
+	margin: 0;
+	padding: 0;
+	font-family: Abel;
+	font-size: 24px;
+	font-weight: 200;
+}
+body {
+	background-image: url("TJgray.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+.clear {
+  clear:both;
+}
+#header {
+	display: block;
+	position: relative;
+	width: 100%;
+	color: #000;
+	font-family: Open Sans Condensed;
+	font-size: 50px;
+	text-align: center;
+	margin-top: 20px;
+}
+#sub_header {
+	display: block;
+	position: relative;
+	width: 100%;
+	color: #000;
+	font-family: Open Sans Condensed;
+	font-size: 18px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+#footer_final {
+    display: block;
+    position: relative;
+    width: 100%;
+    color: #000;
+    font-family: Open Sans Condensed;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
+#github_link {
+	cursor: pointer;
+}
+#button {
+	position: relative;
+	top: 50px;
+	left: 50px;
+	/*height: 100px;
+	width: 200px;*/
+	background-color: #CCDDCC;
+	text-align: center;
+	-webkit-box-shadow: 2px 2px 4px #888;
+	-moz-box-shadow: 2px 2px 4px #888;
+	box-shadow: 2px 2px 4px #888;
+	cursor: pointer;
+}
+#chartPrices {
+	position: absolute;
+}
