@@ -10,6 +10,13 @@ html, body {
 .clear {
   clear:both;
 }
+#GH_banner {
+	z-index: 9050;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
 #info_screen {
 	z-index: 450;
 	top:0px;
@@ -17,7 +24,7 @@ html, body {
 	position: fixed;
 	width: 100%;
 	height: 100% !important;
-	text-align: center;
+	text-align: center
 	line-height: 15px;
 	background-color: #262626;
 	opacity: 0.5;
@@ -25,13 +32,13 @@ html, body {
 }
 #info_box {
 	z-index: 500;
-	position: relative;
+	position: absolute;
 	top: 50%;
   left: 50%;
   margin-top: -100px;
-  margin-left: -200px;
-	width: 400px;
-	height: 200px;
+  margin-left: -250px;
+	width: 500px;
+	height: 250px;
 	background-color: #FFFFFF;
 	text-align: center;
 	border-radius: 25px;
@@ -51,6 +58,7 @@ html, body {
 }
 #info_box_text {
 	position: relative;
+	top: -35px;
 	color: #262626;
 	font-family: Open Sans Condensed;
 	font-size: 30px;
@@ -77,6 +85,125 @@ html, body {
 	margin-top: 20px;
 	margin-bottom: 50px;
 }
+
+#selection_title_container {
+	display: block;
+	position: relative;
+	left: 50%;
+	width: 670px;
+	height: 100px;
+	margin-left: -335px;
+	background-color: #FFF;
+}
+#selection_title_text {
+	display: block;
+	position: relative;
+	top: 50px;
+	width: 100%;
+	color: #262626;
+	font-family: Open Sans Condensed;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.selection_title_box {
+	display: block;
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	background-color: #FFF;
+}
+.selection_title_box_text {
+	display: block;
+	position: absolute;
+	top: 50px;
+	width: 100px;
+	height: 25px;
+	background-color: #FFF;
+	color: #262626;
+	font-family: Open Sans Condensed;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.selection_container {
+	display: block;
+	position: relative;
+	left: 50%;
+	width: 890px;
+	height: 120px;
+	margin-left: -545px;
+	background-color: #FFF;
+}
+.selection_box {
+	display: block;
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-top: 10px;
+	margin-left: 10px;
+	background-color: #FFF;
+}
+.arrow_up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #00CC66;
+	opacity: 0.5;
+	margin-left: 30px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+.arrow_down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #bf4040;
+	opacity: 0.5;
+	margin-left: 30px;
+	margin-top: 50px;
+	cursor: pointer;
+}
+.selection_box_text {
+	display: block;
+	position: absolute;
+	top: 47px;
+	width: 100px;
+	height: 25px;
+	background-color: #FFF;
+	color: #262626;
+	font-family: Open Sans Condensed;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+}
+.selection_box-title {
+	display: block;
+	float: left;
+	width: 200px;
+	height: 100px;
+	margin-top: 10px;
+	margin-left: 10px;
+	background-color: #FFF;
+}
+.selection_box_text-title {
+	display: block;
+	position: absolute;
+	top: 35px;
+	width: 200px;
+	height: 50px;
+	background-color: #FFF;
+	color: #262626;
+	font-family: Open Sans Condensed;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+}
+
 #footer_final {
     display: block;
     position: relative;
@@ -85,7 +212,7 @@ html, body {
     font-family: Open Sans Condensed;
     font-size: 16px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 100px;
 }
 #github_link {
 	cursor: pointer;
