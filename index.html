@@ -9,7 +9,7 @@
 		<title>Crude CL</title>
 		<link rel="icon"
 			type="image/png"
-			href="TJgray_cropped.png" />
+			href="CrudeCL.png" />
 		<!--[if IE]>
 		<script type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -32,7 +32,13 @@
 		<div id="info_screen" style="display: none;"></div>
 		<a id="GH_banner" href="https://github.com/TangoJLabs/CrudeCL/tree/gh-pages"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
 		</a>
-		<div id="header">Crude CL</div>
+		<div id="header_container">
+			<div class="header_box_outside" id="header_image">
+				<!-- <div id="header_image"></div> -->
+			</div>
+			<div class="header_box_middle" id="header">Crude CL</div>
+			<div class="header_box_outside" ></div>
+		</div>
 		<div id="sub_header">A custom algorithm for Crude Oil price (NYMEX CL Month 1) predictions
 		</div>
 
@@ -73,6 +79,7 @@
 			</div>
 		</div>
 
+		<div id="barrel"></div>
 		<div id="footer_final">
 			All non-custom data provided by the <a id="eia_link" href="http://www.eia.gov/">EIA</a>
 			or <a id="fed_link" href="https://research.stlouisfed.org/">The St. Louis Federal Reserve</a>.

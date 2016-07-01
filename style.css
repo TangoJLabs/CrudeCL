@@ -6,6 +6,9 @@ html, body {
 	font-family: Abel;
 	font-size: 24px;
 	font-weight: 200;
+	/*background-image: url("CrudeCL.png");
+	background-size: contain;
+	background-repeat: no-repeat;*/
 }
 .clear {
   clear:both;
@@ -16,6 +19,18 @@ html, body {
 	top: 0;
 	right: 0;
 	cursor: pointer;
+}
+#barrel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100px;
+	width: 100px;
+	opacity: 0;
+	background-image: url("CrudeCL.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right top;
 }
 #info_screen {
 	z-index: 450;
@@ -64,15 +79,47 @@ html, body {
 	font-size: 30px;
 	text-align: center;
 }
-#header {
+#header_container {
 	display: block;
 	position: relative;
 	width: 100%;
+	height: 100px;
+	/*background-color: #CC00FF;*/
+}
+.header_box_outside {
+	display: block;
+	float: left;
+	width: 35%;
+	height: 100px;
+	margin-top: 20px;
+	/*background-color: #CCFF00;*/
+}
+.header_box_middle {
+	display: block;
+	float: left;
+	width: 30%;
+	height: 100px;
+	margin-top: 20px;
+	/*background-color: #CCFF00;*/
+}
+#header_image {
+	/*display: block;
+	position: relative;
+	left: 20%;
+	width: 100px;
+	height: 150px;*/
+	/*background-color: #000;
+	background-image: url("CrudeCL.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right top;*/
+	/*transform: rotate(15deg);*/
+}
+#header {
 	color: #262626;
 	font-family: Open Sans Condensed;
 	font-size: 50px;
 	text-align: center;
-	margin-top: 20px;
 }
 #sub_header {
 	display: block;
@@ -84,6 +131,9 @@ html, body {
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 50px;
+}
+#chartCrude {
+	background-color: #FFF;
 }
 
 #selection_title_container {

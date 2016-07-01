@@ -42,21 +42,41 @@ $(document).ready(function() {
     return dataArray;
   }
 
+  function negateAllValues(array) {
+    var dataArray = [];
+    for (arrayIndex in array) {
+      dataArray.push(array[arrayIndex] * -1);
+    }
+    return dataArray;
+  }
+
+  function addEqualArrays(equalArrays) {
+    var newArray = [];
+    for (i = 0; i < equalArrays[0].length; i++) {
+      var positionValue = 0
+      for (array in equalArrays) {
+        positionValue += equalArrays[array][i]
+      }
+      newArray.push(positionValue);
+    }
+    return newArray;
+  }
+
   function combineDataArrays(arrayOfParsedDataArrays, labelArray, series) {
-    var dataArray = []
+    var dataArray = [];
     for (dateIndex in labelArray) {
-      var arrayCount = 0
-      var valueAtDate = 0
+      var arrayCount = 0;
+      var valueAtDate = 0;
       for (arrayIndex in arrayOfParsedDataArrays) {
         for (dataIndex in arrayOfParsedDataArrays[arrayIndex]) {
           if (arrayOfParsedDataArrays[arrayIndex][dataIndex][0] == labelArray[dateIndex]) {
-            valueAtDate += arrayOfParsedDataArrays[arrayIndex][dataIndex][1]
-            arrayCount += 1
+            valueAtDate += arrayOfParsedDataArrays[arrayIndex][dataIndex][1];
+            arrayCount += 1;
           }
         }
       }
       if (arrayCount == arrayOfParsedDataArrays.length) {
-        dataArray.push(valueAtDate)
+        dataArray.push(valueAtDate);
       }
     }
     return dataArray;
@@ -105,6 +125,13 @@ $(document).ready(function() {
           var refInputData = createDataArray(JSON.parse(response['PET.WCRRIUS2.W']['data']), labelArray, 'USRefInput');
           var refProdLabel = response['PET.MTTRX_NUS_1.M']['dataSeriesDescription'];
           var refProdData = createDataArray(JSON.parse(response['PET.MTTRX_NUS_1.M']['data']), labelArray, 'USRefProd');
+
+          console.log("PROD: " + prodData);
+          console.log("IMPORTS: " + importData);
+          console.log("EXPORTS: " + negateAllValues(exportData));
+          var supplyLabel = 'U.S. Crude Net Refinery Supply Available (MBBL)';
+          var supplyData = addEqualArrays([prodData, importData, negateAllValues(exportData)]);
+          console.log("SUPPLY: " + supplyData);
 
           var twdiLabel = response['TWEXB']['dataSeriesDescription'];
           var twdiData = createDataArray(JSON.parse(response['TWEXB']['data']), labelArray, 'TWDI');
@@ -206,10 +233,10 @@ $(document).ready(function() {
                       pointBorderColor: 'rgba(102, 0, 102, 0)',
                       pointBorderWidth: 0
                   },{
-                      label: refProdLabel,
+                      label: supplyLabel,
                       yAxisID: 'y-axis-left',
                       fill: false,
-                      data: refProdData,
+                      data: supplyData,
                       backgroundColor: 'rgba(255, 102, 0, 0.2)',
                       borderColor: 'rgba(255, 102, 0, 1)',
                       borderWidth: 1,
@@ -368,13 +395,13 @@ $(document).ready(function() {
             });
 
             $("#arrow_up_2-" + (i + 1)).click(function() {
-              m1Data[m1Data.length - (6 - i)] = m1Data[m1Data.length - (6 - i)] + 1;
+              m1Data[m1Data.length - (6 - i)] = m1Data[m1Data.length - (6 - i)] + 0.1;
               $("#selection_box_text_2-" + (i + 1)).text(addCommas(Math.round(m1Data[m1Data.length - (6 - i)] * 100) / 100));
               myChart.update();
               updateAlgorithm()
             });
             $("#arrow_down_2-" + (i + 1)).click(function() {
-              m1Data[m1Data.length - (6 - i)] = m1Data[m1Data.length - (6 - i)] - 1;
+              m1Data[m1Data.length - (6 - i)] = m1Data[m1Data.length - (6 - i)] - 0.1;
               $("#selection_box_text_2-" + (i + 1)).text(addCommas(Math.round(m1Data[m1Data.length - (6 - i)] * 100) / 100));
               myChart.update();
               updateAlgorithm()
