@@ -88,7 +88,7 @@ $(document).ready(function() {
   xhr.onreadystatechange = function() {
       if (xhr.readyState == XMLHttpRequest.DONE) {
           // alert(xhr.responseText);
-          console.log("FINISHED REQUEST");
+          // console.log("FINISHED REQUEST");
 
           var response = JSON.parse(xhr.responseText);
           labelArray = response['dates'];
@@ -126,12 +126,8 @@ $(document).ready(function() {
           var refProdLabel = response['PET.MTTRX_NUS_1.M']['dataSeriesDescription'];
           var refProdData = createDataArray(JSON.parse(response['PET.MTTRX_NUS_1.M']['data']), labelArray, 'USRefProd');
 
-          console.log("PROD: " + prodData);
-          console.log("IMPORTS: " + importData);
-          console.log("EXPORTS: " + negateAllValues(exportData));
           var supplyLabel = 'U.S. Crude Net Refinery Supply Available (MBBL)';
           var supplyData = addEqualArrays([prodData, importData, negateAllValues(exportData)]);
-          console.log("SUPPLY: " + supplyData);
 
           var twdiLabel = response['TWEXB']['dataSeriesDescription'];
           var twdiData = createDataArray(JSON.parse(response['TWEXB']['data']), labelArray, 'TWDI');
