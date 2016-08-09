@@ -129,6 +129,11 @@ $(document).ready(function() {
           var supplyLabel = 'U.S. Crude Net Refinery Supply Available (MBBL)';
           var supplyData = addEqualArrays([prodData, importData, negateAllValues(exportData)]);
 
+          var disruptLabel = 'International Unplanned Disruptions (MBBL)';
+          var disruptArrays = [JSON.parse(response['STEO.PADI_OPEC.M']['data']), JSON.parse(response['STEO.PADI_NONOPEC.M']['data'])];
+          var disruptData = combineDataArrays(disruptArrays, labelArray, 'OPECDisrupt');
+          console.log(disruptData);
+
           var twdiLabel = response['TWEXB']['dataSeriesDescription'];
           var twdiData = createDataArray(JSON.parse(response['TWEXB']['data']), labelArray, 'TWDI');
           var m1Label = response['M1']['dataSeriesDescription'];
@@ -270,7 +275,19 @@ $(document).ready(function() {
                         }
                       ]
                   },
-                  hover: 'dataset'
+                  hover: 'dataset',
+                  // pan: {
+                  //       enabled: true,
+                  //       mode: 'xy'
+                  //   },
+                  // zoom: {
+                  //     enabled: true,
+                  //     mode: 'xy',
+                  //     limits: {
+                  //         max: 10,
+                  //         min: 0.5
+                  //     }
+                  // }
               }
           });
 
@@ -283,6 +300,7 @@ $(document).ready(function() {
               ,'stockData': stockData
               ,'prodData': prodData
               ,'refCapData': refCapData
+              ,'disruptData': disruptData
             }));
             xhrCL.onreadystatechange = function() {
                 if (xhrCL.readyState == XMLHttpRequest.DONE) {
