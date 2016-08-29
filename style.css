@@ -43,7 +43,7 @@ html, body {
 	line-height: 15px;
 	background-color: #262626;
 	opacity: 0.5;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 #info_box {
 	z-index: 500;
@@ -73,7 +73,7 @@ html, body {
 }
 #info_box_text {
 	position: relative;
-	top: -35px;
+	top: -120px;
 	color: #262626;
 	font-family: Open Sans Condensed;
 	font-size: 30px;

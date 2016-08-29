@@ -469,10 +469,10 @@ $(document).ready(function() {
 
   $('#info_screen').css('display', 'block');
   $('#info_box').css('display', 'block');
-  $('#info_screen').click(function() {
-    $('#info_screen').css('display', 'none');
-    $('#info_box').css('display', 'none');
-  });
+  // $('#info_screen').click(function() {
+  //   $('#info_screen').css('display', 'none');
+  //   $('#info_box').css('display', 'none');
+  // });
 
 
 
